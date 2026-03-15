@@ -7,6 +7,7 @@ export const metadata: Metadata = {
   description: "Servicios de asesoría para proyectos académicos.",
 };
 
+
 export default function RootLayout({
   children,
 }: Readonly<{

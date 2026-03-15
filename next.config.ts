@@ -5,6 +5,7 @@ const nextConfig: NextConfig = {
 
   basePath: "/mentoring",
   assetPrefix: "/mentoring/",
+  trailingSlash: true,
 
   images: {
     unoptimized: true,
