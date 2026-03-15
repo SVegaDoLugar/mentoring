@@ -1,0 +1,131 @@
+{
+  "meta": {
+    "description": "Servicios de asesoría para proyectos académicos.",
+    "title": "Asesorías de proyectos académicos"
+  },
+  "header": {
+    "title": "Asesoría de proyectos Académicos",
+    "subtitle": "Te ayudo a llevar tus proyectos académicos al siguiente nivel"
+  },
+  "nav": {
+    "home": "Inicio",
+    "services": "Servicios",
+    "about": "Sobre mí",
+    "testimonials": "Testimonios",
+    "contact": "Contacto"
+  },
+  "home": {
+    "title": "Servicio de asesoría de proyectos",
+    "subtitle": "Soluciones profesionales para guiarte en el desarrollo exitoso de tu proyecto académico.",
+    "card1Title": "Asesoría Académica",
+    "card1Desc": "Orientación especializada para proyectos de grado a nivel escolar, pregrado y posgrado.",
+    "card2Title": "Búsqueda de Referencias",
+    "card2Desc": "Localización de fuentes académicas relevantes para tu marco teórico y estado del arte.",
+    "card3Title": "Diseño de Tablas y Figuras",
+    "card3Desc": "Creación profesional de elementos visuales para presentar tus datos de manera efectiva.",
+    "ctaTitle": "¿Listo para empezar?",
+    "ctaDesc": "Contáctame hoy mismo para discutir tu proyecto y cómo puedo ayudarte.",
+    "ctaButton": "Contáctame"
+  },
+  "services": {
+    "title": "Servicios",
+    "service1Title": "Asesorías Proyectos Escolares",
+    "service1Desc": "Guía especializada para estudiantes de secundaria en el desarrollo de sus proyectos finales, con enfoque metodológico adaptado a su nivel académico.",
+    "service2Title": "Asesorías Proyectos Pregrado",
+    "service2Desc": "Apoyo integral en trabajos de grado para estudiantes universitarios, incluyendo planteamiento del problema, marco teórico y desarrollo metodológico.",
+    "service3Title": "Asesorías Proyectos Posgrado",
+    "service3Desc": "Orientación avanzada para tesis de maestría y doctorado, especialmente en ciencias de la salud, ciencias sociales e ingeniería de software o sistemas.",
+    "service4Title": "Búsqueda de Referencias",
+    "service4Desc": "Investigación bibliográfica especializada para fortalecer tu marco teórico o estado del arte con fuentes académicas actualizadas y relevantes.",
+    "service5Title": "Diseño de Tablas y Figuras",
+    "service5Desc": "Elaboración profesional de elementos visuales para presentar datos de manera clara y atractiva, mejorando la comprensión de tu investigación.",
+    "service6Title": "Aplicación de Normas APA",
+    "service6Desc": "Formato impecable de tu documento según las normas APA actualizadas, incluyendo citas, referencias, márgenes y estructura general.",
+    "service7Title": "Mejoras en Redacción",
+    "service7Desc": "Optimización de la calidad lingüística de tu trabajo, corrigiendo errores gramaticales y mejorando la claridad y coherencia del texto."
+  },
+  "about": {
+    "title": "Sobre Mí",
+    "para1": "Psicólogo y programador backend con una sólida experiencia en la orientación de proyectos de investigación en todos los niveles educativos. Mi formación académica y mi trayectoria profesional me han permitido desarrollar habilidades especializadas en metodología de la investigación y redacción académica.",
+    "para2": "Me especializo en asesorar proyectos en las áreas de ciencias de la salud, ciencias sociales e ingeniería de software/sistemas, adaptando mi enfoque a las necesidades específicas de cada estudiante y proyecto. A lo largo de mi carrera, he trabajado durante varios años como investigador voluntario en el ámbito universitario, lo que me ha brindado una perspectiva profunda y completa del proceso académico y científico.",
+    "whyTitle": "¿Por qué trabajar conmigo?",
+    "feature1": "Metodología personalizada para cada proyecto y nivel académico.",
+    "feature2": "Experiencia en diversas áreas del conocimiento.",
+    "feature3": "Enfoque en la calidad académica y el rigor metodológico.",
+    "feature4": "Compromiso con los plazos y los resultados.",
+    "feature5": "Acompañamiento continuo durante todo el proceso.",
+    "para3": "Mi objetivo es no solo ayudar a completar con éxito los proyectos académicos, sino también fortalecer las habilidades de investigación y redacción de los estudiantes para su desarrollo profesional futuro."
+  },
+  "testimonials": {
+    "title": "Testimonios",
+    "subtitle": "Conoce la experiencia de otros estudiantes que han confiado en mis servicios de asesoría.",
+    "testimonial1": "\"Samuel fue un asesor excepcional que me brindó apoyo y orientación valiosos durante el desarrollo de mi tesis. Agradezco su contribución a mi crecimiento académico.\"",
+    "testimonial1Author": "N.M. P***",
+    "testimonial1Program": "Pregrado en Licenciatura en idiomas",
+    "testimonial2": "\"Estaba atascado con el marco teórico de mi tesis hasta que recibí esta asesoría. El servicio de búsqueda de referencias y la orientación para aplicar las normas APA fueron excepcionales.\"",
+    "testimonial2Author": "V. M***",
+    "testimonial2Program": "MSc. Psicología Clínica",
+    "testimonial3": "\"El trabajo realizado en el informe sobre el plan de proyecto superó mis expectativas. Me impresionó la rapidez y la alta calidad del servicio. La claridad y organización del informe mejoraron significativamente la presentación de mi planificación y facilitaron la comprensión de mi trabajo.\"",
+    "testimonial3Author": "K. N***",
+    "testimonial3Program": "BSc. en Psicología",
+    "testimonial4": "\"El diseño de tablas y figuras para mi tesis doctoral superó mis expectativas. La presentación visual de mis resultados mejoró significativamente la comprensión de mi investigación.\"",
+    "testimonial4Author": "C. L***",
+    "testimonial4Program": "MSc. Neuropsicología",
+    "testimonial5": "\"Me gustó mucho tu asesoría y el desarrollo del proyecto final. El trabajo fue muy detallado, organizado, la verdad impecable, me gustó.\"",
+    "testimonial5Author": "J. C***",
+    "testimonial5Program": "MSc. en Psicología Clínica y de la Salud"
+  },
+  "contact": {
+    "title": "Contacto",
+    "subtitle": "Estoy aquí para ayudarte con tu proyecto académico. ¡Contáctame hoy mismo!",
+    "formName": "Nombre completo",
+    "formPhone": "Teléfono (opcional)",
+    "formProjectType": "Tipo de proyecto",
+    "formMessage": "Mensaje",
+    "formSubmit": "Enviar mensaje",
+    "formSelectPlaceholder": "Selecciona una opción",
+    "projectSchool": "Proyecto Escolar",
+    "projectUndergrad": "Proyecto Pregrado",
+    "projectMasters": "Tesis Maestría",
+    "projectDoctoral": "Tesis Doctoral",
+    "projectOther": "Otro",
+    "email": "Email",
+    "phone": "Teléfono",
+    "scheduleLabel": "Horario",
+    "schedule": "Lunes a Viernes<br>9:00 AM - 6:00 PM"
+  },
+  "footer": {
+    "aboutTitle": "Sobre mí",
+    "aboutDesc": "Especialista en asesoría académica con experiencia ayudando a estudiantes a lograr excelentes resultados en sus tesis universitarias.",
+    "servicesTitle": "Servicios",
+    "service1": "Asesorías Proyectos Escolares",
+    "service2": "Asesorías Proyectos Pregrado",
+    "service3": "Asesorías Proyectos Posgrado",
+    "service4": "Búsqueda de Referencias",
+    "service5": "Diseño de Tablas y Figuras",
+    "service6": "Aplicación de normas APA",
+    "service7": "Mejoras en Redacción",
+    "contactTitle": "Contacto",
+    "contact1": "Enviar mensaje",
+    "contact2": "Email",
+    "contact3": "Teléfono",
+    "copyright": "Asesoría de Tesis."
+  },
+  "validation": {
+    "nameRequired": "Por favor, ingrese su nombre completo.",
+    "projectTypeRequired": "Por favor, seleccione el tipo de proyecto.",
+    "messageRequired": "Por favor, escriba su mensaje.",
+    "errorsTitle": "Por favor, corrija los siguientes errores:"
+  },
+  "mailto": {
+    "bodyIntro": "¡Hola! Mi nombre es {name} y estoy interesado en tus servicios. Me gustaría compartir los detalles de un proyecto de tipo {projectType} en el que estoy trabajando, y creo que podrías ayudarme a llevarlo a cabo de la mejor manera posible. A continuación, te dejo la información relevante para que podamos comenzar.\n\n",
+    "bodyPhone": "\n\nMi número de teléfono es: {phone}",
+    "bodyClosing": "\n\nQuedo atento a tu respuesta. ¡Gracias!"
+  },
+  "success": {
+    "message": "¡Mensaje enviado correctamente! Me pondré en contacto contigo lo antes posible."
+  },
+  "loading": {
+    "sending": "Enviando..."
+  }
+}
