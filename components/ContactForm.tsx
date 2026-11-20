@@ -10,6 +10,9 @@ const PROJECT_OPTIONS = [
   { value: "otro", key: "contact.projectOther" },
 ] as const;
 
+// WhatsApp number in international format, digits only (+57 302 602 6180)
+const WHATSAPP_NUMBER = "573026026180";
+
 export function ContactForm() {
   const { t, translations } = useI18n();
 
@@ -52,8 +55,9 @@ export function ContactForm() {
     body += closing;
 
     const subject = `${projectTypeText} - ${name}`;
-    const mailto = `mailto:svegadolugar@hotmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-    window.location.href = mailto;
+    const whatsappText = `${subject}\n\n${body}`;
+    const whatsapp = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(whatsappText)}`;
+    window.open(whatsapp, "_blank", "noopener,noreferrer");
   };
 
   return (
