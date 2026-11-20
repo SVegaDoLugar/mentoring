@@ -43,10 +43,10 @@ export function ContactTab() {
           <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn" width={20} height={20} />
         </a>
         <a href={LINKS.orcid} className="social-icon" target="_blank" rel="noopener noreferrer">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/06/ORCID_iD.svg/2048px-ORCID_iD.svg.png" alt="ORCID" width={20} height={20} />
+          <img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/0/06/ORCID_iD.svg/1280px-ORCID_iD.svg.png?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail" alt="ORCID" width={20} height={20} />
         </a>
         <a href={LINKS.scholar} className="social-icon" target="_blank" rel="noopener noreferrer">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/Google_Scholar_logo.svg/2048px-Google_Scholar_logo.svg.png" alt="Google Scholar" width={20} height={20} />
+          <img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c7/Google_Scholar_logo.svg/3840px-Google_Scholar_logo.svg.png?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail" alt="Google Scholar" width={20} height={20} />
         </a>
         <a href={LINKS.github} className="social-icon" target="_blank" rel="noopener noreferrer">
           <img src="https://cdn-icons-png.flaticon.com/512/25/25231.png" alt="GitHub" width={20} height={20} />

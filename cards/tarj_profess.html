@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Samuel J. Vega — Tarjeta profesional</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --ink: #0C1118;
+            --surface: #10161F;
+            --line: rgba(255, 255, 255, .10);
+            --teal: #2F8A93;
+            --teal-deep: #1A5C64;
+            --gold: #C9A45B;
+            --gold-soft: rgba(201, 164, 91, .16);
+            --text: #F4F1EA;
+            --muted: #9AA6B2;
+            --paper: #F6F1E7;
+            --paper-ink: #17202A;
+            --paper-muted: #5C6670;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            min-height: 100vh;
+            background:
+                radial-gradient(ellipse 80% 50% at 50% -10%, #16343a, transparent 55%),
+                #070A0F;
+            font-family: "Manrope", sans-serif;
+            color: var(--text);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 18px;
+            padding: 28px 16px 48px;
+        }
+
+        .chrome {
+            width: min(820px, 100%);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .label {
+            font-size: 10px;
+            letter-spacing: .16em;
+            color: #6B7A86;
+            text-transform: uppercase;
+        }
+
+        .chrome-actions {
+            display: flex;
+            gap: 8px;
+        }
+
+        .ghost-btn {
+            padding: 8px 14px;
+            border: 1px solid #24303A;
+            border-radius: 999px;
+            background: transparent;
+            color: #8A97A3;
+            font-family: inherit;
+            font-size: 11px;
+            letter-spacing: .04em;
+            cursor: pointer;
+            transition: .2s ease;
+        }
+
+        .ghost-btn:hover,
+        .ghost-btn[aria-pressed="true"] {
+            color: var(--text);
+            border-color: var(--teal);
+        }
+
+        .scene {
+            width: min(820px, 100%);
+            perspective: 1800px;
+        }
+
+        .card {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 90 / 50;
+            transform-style: preserve-3d;
+            transition: transform .85s cubic-bezier(.22, .72, .2, 1);
+            cursor: pointer;
+        }
+
+        .card.flipped { transform: rotateY(180deg); }
+
+        .face {
+            position: absolute;
+            inset: 0;
+            border-radius: 14px;
+            overflow: hidden;
+            backface-visibility: hidden;
+            -webkit-backface-visibility: hidden;
+        }
+
+        .back { transform: rotateY(180deg); }
+
+        /* ═══════════════ FRENTE ═══════════════ */
+
+        .front {
+            background:
+                radial-gradient(ellipse 70% 80% at 100% 120%, rgba(47, 138, 147, .28), transparent 50%),
+                radial-gradient(ellipse 50% 40% at 0% 0%, rgba(201, 164, 91, .10), transparent 46%),
+                var(--surface);
+            border: 1px solid #24313C;
+            color: var(--text);
+        }
+
+        .front-inner {
+            height: 100%;
+            display: grid;
+            grid-template-rows: auto 1fr auto;
+            padding: clamp(18px, 3.6vw, 36px) clamp(20px, 4vw, 40px);
+            position: relative;
+        }
+
+        .front-inner::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 18%;
+            bottom: 18%;
+            width: 3px;
+            background: linear-gradient(to bottom, transparent, var(--gold) 30%, var(--teal) 70%, transparent);
+        }
+
+        .top-row,
+        .hero,
+        .front-footer {
+            position: relative;
+            z-index: 1;
+        }
+
+        .top-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 16px;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .mono {
+            width: 42px;
+            height: 42px;
+            border: 1px solid rgba(201, 164, 91, .35);
+            border-radius: 10px;
+            display: grid;
+            place-items: center;
+            background: var(--gold-soft);
+            color: var(--gold);
+            font-size: 13px;
+            font-weight: 800;
+            letter-spacing: .08em;
+            flex-shrink: 0;
+        }
+
+        .brand-copy {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+
+        .eyebrow {
+            font-size: clamp(9px, 1.15vw, 11px);
+            font-weight: 700;
+            letter-spacing: .22em;
+            text-transform: uppercase;
+            color: var(--gold);
+        }
+
+        .person {
+            font-size: clamp(13px, 1.7vw, 16px);
+            font-weight: 700;
+            letter-spacing: -.02em;
+        }
+
+        .hero {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 6px 0 4px;
+            max-width: 78%;
+        }
+
+        .hook {
+            font-family: "Fraunces", Georgia, serif;
+            font-size: clamp(28px, 5.1vw, 52px);
+            font-weight: 600;
+            line-height: .95;
+            letter-spacing: -.035em;
+        }
+
+        .hook em {
+            font-style: italic;
+            color: #F0D48A;
+        }
+
+        .promise {
+            margin-top: 12px;
+            max-width: 34ch;
+            color: var(--muted);
+            font-size: clamp(12px, 1.55vw, 16px);
+            line-height: 1.45;
+            font-weight: 500;
+        }
+
+        .front-footer {
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+            gap: 16px;
+        }
+
+        .cta-stack {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            min-width: 0;
+        }
+
+        .pills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+
+        .pill {
+            font-size: clamp(9px, 1.1vw, 11px);
+            font-weight: 600;
+            letter-spacing: .06em;
+            text-transform: uppercase;
+            color: #D5DEE6;
+            border: 1px solid var(--line);
+            background: rgba(255, 255, 255, .03);
+            border-radius: 999px;
+            padding: 4px 9px;
+        }
+
+        .wa-chip {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            width: fit-content;
+            padding: 8px 12px;
+            border-radius: 999px;
+            background: #128C7E;
+            color: #fff;
+            text-decoration: none;
+            font-size: clamp(12px, 1.45vw, 15px);
+            font-weight: 700;
+            letter-spacing: .01em;
+            box-shadow: 0 8px 20px rgba(18, 140, 126, .28);
+        }
+
+        .wa-chip svg {
+            width: 15px;
+            height: 15px;
+            fill: currentColor;
+        }
+
+        .qr-block {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 5px;
+            flex-shrink: 0;
+        }
+
+        .qr-wrap {
+            padding: 6px;
+            background: #fff;
+            border-radius: 10px;
+            line-height: 0;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, .35);
+        }
+
+        .qr-wrap img {
+            display: block;
+            width: clamp(72px, 12vw, 108px);
+            height: clamp(72px, 12vw, 108px);
+            border-radius: 4px;
+        }
+
+        .qr-label {
+            font-size: 9px;
+            letter-spacing: .14em;
+            text-transform: uppercase;
+            color: var(--muted);
+        }
+
+        /* ═══════════════ REVERSO ═══════════════ */
+
+        .back {
+            background:
+                radial-gradient(ellipse 60% 50% at 0% 0%, rgba(47, 138, 147, .12), transparent 50%),
+                var(--paper);
+            border: 1px solid #D9D0BE;
+            color: var(--paper-ink);
+        }
+
+        .back-inner {
+            height: 100%;
+            display: grid;
+            grid-template-rows: auto 1fr auto;
+            padding: clamp(16px, 3.2vw, 32px) clamp(18px, 3.6vw, 36px);
+            position: relative;
+        }
+
+        .back-head {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 16px;
+            margin-bottom: 8px;
+        }
+
+        .back-kicker {
+            font-size: clamp(9px, 1.1vw, 11px);
+            font-weight: 800;
+            letter-spacing: .2em;
+            text-transform: uppercase;
+            color: var(--teal-deep);
+        }
+
+        .back-title {
+            margin-top: 4px;
+            font-family: "Fraunces", Georgia, serif;
+            font-size: clamp(22px, 3.4vw, 34px);
+            font-weight: 600;
+            letter-spacing: -.03em;
+            line-height: 1;
+        }
+
+        .back-cred {
+            max-width: 22ch;
+            text-align: right;
+            font-size: clamp(10px, 1.2vw, 12px);
+            line-height: 1.4;
+            color: var(--paper-muted);
+            font-weight: 600;
+        }
+
+        .offers {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 10px;
+            align-content: center;
+        }
+
+        .offer {
+            padding: 10px 10px 8px;
+            border-radius: 12px;
+            background: rgba(255, 255, 255, .55);
+            border: 1px solid #E4DCCB;
+            min-width: 0;
+        }
+
+        .offer-num {
+            font-size: 10px;
+            font-weight: 800;
+            letter-spacing: .16em;
+            color: var(--teal);
+            margin-bottom: 6px;
+        }
+
+        .offer h3 {
+            font-size: clamp(13px, 1.7vw, 17px);
+            font-weight: 800;
+            letter-spacing: -.02em;
+            margin-bottom: 4px;
+        }
+
+        .offer p {
+            font-size: clamp(10px, 1.2vw, 12.5px);
+            line-height: 1.35;
+            color: var(--paper-muted);
+            font-weight: 500;
+        }
+
+        .back-cta {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            padding: 10px 12px;
+            border-radius: 12px;
+            background: var(--ink);
+            color: var(--text);
+        }
+
+        .back-cta-copy strong {
+            display: block;
+            font-size: clamp(12px, 1.5vw, 15px);
+            font-weight: 800;
+        }
+
+        .back-cta-copy span {
+            display: block;
+            margin-top: 2px;
+            font-size: clamp(10px, 1.2vw, 12px);
+            color: #B7C2CC;
+        }
+
+        .back-cta a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .site {
+            font-size: clamp(9px, 1.1vw, 11px);
+            color: #D7C089;
+            letter-spacing: .02em;
+            word-break: break-all;
+        }
+
+        .note {
+            width: min(820px, 100%);
+            color: #6E7C88;
+            font-size: 12px;
+            line-height: 1.55;
+        }
+
+        .note strong { color: #C9D3DB; }
+
+        body.print-view {
+            justify-content: flex-start;
+            background: #E8E2D6;
+            color: var(--paper-ink);
+        }
+
+        body.print-view .label { color: #5A6570; }
+        body.print-view .ghost-btn { border-color: #C4BBA8; color: #3A4550; }
+        body.print-view .note { color: #4A5560; }
+        body.print-view .note strong { color: #17202A; }
+
+        body.print-view .scene {
+            perspective: none;
+        }
+
+        body.print-view .card {
+            aspect-ratio: auto;
+            height: auto;
+            transform: none !important;
+            display: flex;
+            flex-direction: column;
+            gap: 28px;
+            cursor: default;
+        }
+
+        body.print-view .face {
+            position: relative;
+            transform: none !important;
+            backface-visibility: visible;
+            width: min(90mm, 100%);
+            height: 50mm;
+            box-shadow: 0 10px 30px rgba(20, 24, 28, .12);
+        }
+
+        @media (max-width: 640px) {
+            .card { aspect-ratio: 90 / 62; }
+            .hero { max-width: 100%; }
+            .offers { grid-template-columns: 1fr; gap: 6px; }
+            .offer { display: flex; gap: 10px; align-items: baseline; padding: 8px 10px; }
+            .offer p { display: none; }
+            .back-cred { display: none; }
+            .qr-wrap img { width: 64px; height: 64px; }
+        }
+
+        @media print {
+            @page { size: A4 portrait; margin: 12mm; }
+
+            body {
+                background: #fff !important;
+                padding: 0;
+                gap: 10mm;
+                display: block;
+            }
+
+            .chrome,
+            .note { display: none !important; }
+
+            .scene { width: 100%; perspective: none; }
+
+            .card {
+                transform: none !important;
+                aspect-ratio: auto;
+                height: auto;
+                display: flex;
+                flex-direction: column;
+                gap: 14mm;
+                cursor: default;
+                break-inside: avoid;
+            }
+
+            .face {
+                position: relative;
+                transform: none !important;
+                backface-visibility: visible;
+                width: 90mm;
+                height: 50mm;
+                border-radius: 0;
+                box-shadow: none;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .card { transition: none; }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="chrome">
+        <p class="label" id="label">Frente · Haz clic para ver el reverso</p>
+        <div class="chrome-actions">
+            <button class="ghost-btn" id="viewBtn" type="button" aria-pressed="false">Vista de impresión</button>
+            <button class="ghost-btn" id="flip" type="button">Voltear</button>
+            <button class="ghost-btn" id="printBtn" type="button">Imprimir</button>
+        </div>
+    </div>
+
+    <main class="scene">
+        <div class="card" id="card" role="button" tabindex="0" aria-label="Tarjeta profesional. Pulsa para voltear.">
+
+            <section class="face front" aria-label="Frente">
+                <div class="front-inner">
+                    <div class="top-row">
+                        <div class="brand">
+                            <div class="mono" aria-hidden="true">SV</div>
+                            <div class="brand-copy">
+                                <p class="eyebrow">Acompañamiento profesional</p>
+                                <p class="person">Samuel J. Vega do Lugar</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="hero">
+                        <h1 class="hook">Te ayudo<br><em>a avanzar.</em></h1>
+                        <p class="promise">Si tu tesis se trabó, necesitas orientación o quieres un proyecto digital bien hecho — escríbeme hoy.</p>
+                    </div>
+
+                    <div class="front-footer">
+                        <div class="cta-stack">
+                            <div class="pills">
+                                <span class="pill">Tesis</span>
+                                <span class="pill">Psicología</span>
+                                <span class="pill">Software</span>
+                            </div>
+                            <a class="wa-chip" href="https://wa.me/573026026180?text=Hola%20Samuel%2C%20vi%20tu%20tarjeta%20y%20quiero%20hablar%20contigo." target="_blank" rel="noopener noreferrer">
+                                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 11.9a8.5 8.5 0 0 1-12.6 7.4L4 20.1l1.6-4.3A8.5 8.5 0 1 1 20.5 11.9Zm-8.5 7a7 7 0 1 0-6-3.3l.2.3-1 2.6 2.7-.9.3.2a7 7 0 0 0 3.8 1.1Zm3.8-5.3c-.2-.1-1.2-.6-1.4-.7s-.3-.1-.5.1-.6.7-.7.8-.3.2-.5.1a5.7 5.7 0 0 1-1.7-1 6.2 6.2 0 0 1-1.1-1.4c-.1-.2 0-.3.1-.5l.4-.5.1-.3c0-.1 0-.3-.1-.4s-.5-1.1-.6-1.5-.3-.3-.5-.3h-.4a.8.8 0 0 0-.6.3 2.4 2.4 0 0 0-.8 1.8 4.2 4.2 0 0 0 .9 2.2 9.6 9.6 0 0 0 3.7 3.3 4.2 4.2 0 0 0 2.5.7 2.1 2.1 0 0 0 1.4-.6 1.8 1.8 0 0 0 .4-1.3c0-.1 0-.2-.2-.3Z"/></svg>
+                                302 602 6180
+                            </a>
+                        </div>
+
+                        <div class="qr-block">
+                            <div class="qr-wrap">
+                                <img
+                                    src="https://api.qrserver.com/v1/create-qr-code/?size=400x400&data=https%3A%2F%2Fwa.me%2F573026026180&bgcolor=ffffff&color=0C1118&ecc=H&margin=0"
+                                    alt="Código QR para escribir por WhatsApp"
+                                    width="108"
+                                    height="108"
+                                >
+                            </div>
+                            <span class="qr-label">Escanea y escribe</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="face back" aria-label="Reverso">
+                <div class="back-inner">
+                    <div class="back-head">
+                        <div>
+                            <p class="back-kicker">Servicios</p>
+                            <h2 class="back-title">¿En qué te ayudo?</h2>
+                        </div>
+                        <p class="back-cred">Psicólogo e ingeniero. Te acompaño de colegio a doctorado.</p>
+                    </div>
+
+                    <div class="offers">
+                        <article class="offer">
+                            <p class="offer-num">01</p>
+                            <h3>Tu tesis</h3>
+                            <p>Método, APA, referencias y redacción. Escolar, pregrado y posgrado.</p>
+                        </article>
+                        <article class="offer">
+                            <p class="offer-num">02</p>
+                            <h3>Tu bienestar</h3>
+                            <p>Orientación psicológica clara, cercana y a tu ritmo.</p>
+                        </article>
+                        <article class="offer">
+                            <p class="offer-num">03</p>
+                            <h3>Tu proyecto</h3>
+                            <p>Software, web y soluciones digitales hechas a medida.</p>
+                        </article>
+                    </div>
+
+                    <div class="back-cta">
+                        <div class="back-cta-copy">
+                            <strong>Primera conversación por WhatsApp</strong>
+                            <span>Respondo el mismo día · Lun–Vie 9:00 a 18:00</span>
+                        </div>
+                        <a class="site" href="https://svegadolugar.github.io/mentoring/" target="_blank" rel="noopener noreferrer">
+                            svegadolugar.github.io/mentoring
+                        </a>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <p class="note">
+        <strong>Para la calle:</strong> el frente vende la promesa y el WhatsApp. El reverso, en papel claro, se lee de día.
+        Imprime a <strong>90 × 50 mm</strong> en cartulina mate de 300 g. El QR abre el chat: <strong>+57 302 602 6180</strong>.
+    </p>
+
+    <script>
+        const card = document.getElementById("card");
+        const btn = document.getElementById("flip");
+        const viewBtn = document.getElementById("viewBtn");
+        const printBtn = document.getElementById("printBtn");
+        const lbl = document.getElementById("label");
+
+        function isPrintView() {
+            return document.body.classList.contains("print-view");
+        }
+
+        function setLabel() {
+            if (isPrintView()) {
+                lbl.textContent = "Vista de impresión · Frente y reverso a 90 × 50 mm";
+                return;
+            }
+            lbl.textContent = card.classList.contains("flipped")
+                ? "Reverso · Haz clic para volver al frente"
+                : "Frente · Haz clic para ver el reverso";
+        }
+
+        function toggle() {
+            if (isPrintView()) return;
+            card.classList.toggle("flipped");
+            setLabel();
+        }
+
+        card.addEventListener("click", toggle);
+        card.addEventListener("keydown", (e) => {
+            if (e.key === "Enter" || e.key === " ") {
+                e.preventDefault();
+                toggle();
+            }
+        });
+
+        btn.addEventListener("click", (e) => {
+            e.stopPropagation();
+            toggle();
+        });
+
+        document.querySelectorAll("a").forEach((link) => {
+            link.addEventListener("click", (e) => e.stopPropagation());
+        });
+
+        viewBtn.addEventListener("click", () => {
+            const next = !isPrintView();
+            document.body.classList.toggle("print-view", next);
+            card.classList.remove("flipped");
+            viewBtn.setAttribute("aria-pressed", String(next));
+            setLabel();
+        });
+
+        printBtn.addEventListener("click", () => window.print());
+    </script>
+</body>
+</html>
